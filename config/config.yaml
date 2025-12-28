@@ -1,0 +1,51 @@
+# LLM-Based ATS Configuration
+
+# Ollama Settings
+ollama:
+  base_url: "http://localhost:11434"
+  model: "mistral"  # Options: mistral, llama2, mistral-openorca, etc.
+  timeout: 120
+  temperature: 0.7
+  max_tokens: 2000
+
+# File Paths
+paths:
+  base_resume: "data/base_resume.txt"
+  applications_csv: "data/applications.csv"
+  log_file: "data/logs/app.log"
+  prompts: "templates/prompts.yaml"
+
+# ATS Scoring Parameters
+scoring:
+  keyword_weight: 0.35
+  skills_weight: 0.30
+  experience_weight: 0.20
+  education_weight: 0.10
+  format_weight: 0.05
+  
+  # Score thresholds
+  excellent_threshold: 80
+  good_threshold: 60
+  fair_threshold: 40
+
+# Resume Parsing
+parsing:
+  supported_formats:
+    - pdf
+    - docx
+    - txt
+  max_file_size_mb: 10
+
+# Logging
+logging:
+  level: "INFO"  # DEBUG, INFO, WARNING, ERROR, CRITICAL
+  format: "%(asctime)s - %(name)s - %(levelname)s - %(message)s"
+  max_bytes: 10485760  # 10MB
+  backup_count: 5
+
+# Application Settings
+app:
+  title: "LLM-Based ATS & Resume Builder"
+  icon: "📄"
+  layout: "wide"
+  sidebar_state: "expanded"
