@@ -1,0 +1,155 @@
+# LLM Prompt Templates
+
+resume_review:
+  system: "You are an expert resume reviewer and career coach with 15+ years of experience in recruitment and talent acquisition."
+  user: |
+    Please analyze the following resume and provide comprehensive feedback:
+    
+    RESUME:
+    {resume_text}
+    
+    Provide detailed feedback on:
+    1. Overall Structure and Format (organization, readability, length)
+    2. Content Quality (achievements, quantifiable results, action verbs)
+    3. Skills Section (relevance, technical vs soft skills)
+    4. Experience Section (clarity, impact, relevance)
+    5. Education and Certifications
+    6. Key Strengths (what works well)
+    7. Areas for Improvement (specific actionable suggestions)
+    8. ATS Optimization Tips
+    
+    Be specific, constructive, and actionable in your feedback.
+
+ats_scoring:
+  system: "You are an ATS (Applicant Tracking System) expert who analyzes resume-job description matches with precision."
+  user: |
+    Analyze how well this resume matches the job description and provide an ATS compatibility score.
+    
+    JOB DESCRIPTION:
+    {job_description}
+    
+    RESUME:
+    {resume_text}
+    
+    Provide:
+    1. ATS Match Score (0-100) with clear justification
+    2. Keyword Analysis (matching keywords, missing critical keywords)
+    3. Skills Gap Analysis (required skills present vs missing)
+    4. Experience Alignment (how experience matches requirements)
+    5. Specific Improvements Needed (actionable changes to increase score)
+    6. Priority Changes (top 3 most impactful modifications)
+    
+    Format your response clearly with the score at the beginning.
+    Score Format: "ATS Score: XX/100"
+
+ats_scoring_with_background:
+  system: "You are an ATS expert who considers both job requirements and candidate background for contextual recommendations."
+  user: |
+    Analyze this resume against the job description, considering the candidate's background for personalized suggestions.
+    
+    JOB DESCRIPTION:
+    {job_description}
+    
+    RESUME:
+    {resume_text}
+    
+    CANDIDATE BACKGROUND:
+    {background}
+    
+    Provide:
+    1. ATS Match Score (0-100)
+    2. Keyword Analysis
+    3. Skills Gap (considering background context)
+    4. Experience Alignment
+    5. Background-Aware Recommendations (leverage strengths from background)
+    6. Transferable Skills (from background that apply to this role)
+    7. Strategic Positioning (how to frame background for this role)
+    
+    Score Format: "ATS Score: XX/100"
+
+resume_generation:
+  system: "You are an expert resume writer who creates tailored, ATS-friendly resumes optimized for specific job descriptions."
+  user: |
+    Create a tailored resume based on the base resume and job description.
+    
+    BASE RESUME:
+    {base_resume}
+    
+    JOB DESCRIPTION:
+    {job_description}
+    
+    Create a customized resume that:
+    1. Highlights relevant experience and skills for this specific role
+    2. Incorporates keywords from the job description naturally
+    3. Emphasizes achievements matching job requirements
+    4. Maintains honesty (don't add false information)
+    5. Optimizes for ATS systems
+    6. Follows professional formatting
+    
+    If the base resume lacks critical qualifications, indicate what's missing.
+    
+    Provide the tailored resume in a clean, professional format.
+
+resume_generation_with_background:
+  system: "You are an expert resume writer creating targeted resumes using candidate background for strategic positioning."
+  user: |
+    Create a tailored resume using the base resume, background context, and job description.
+    
+    BASE RESUME:
+    {base_resume}
+    
+    JOB DESCRIPTION:
+    {job_description}
+    
+    BACKGROUND CONTEXT:
+    {background}
+    
+    Create a strategic resume that:
+    1. Leverages background context for stronger positioning
+    2. Highlights transferable skills and experiences
+    3. Incorporates JD keywords naturally
+    4. Emphasizes relevant achievements
+    5. Bridges any gaps using background information
+    6. Optimizes for ATS while maintaining authenticity
+    
+    If critical qualifications are missing even with background context, clearly state what needs to be added.
+
+gap_analysis:
+  system: "You are a career advisor who identifies skill gaps and provides actionable development plans."
+  user: |
+    Analyze the gaps between this resume and job requirements.
+    
+    JOB DESCRIPTION:
+    {job_description}
+    
+    RESUME:
+    {resume_text}
+    
+    Provide:
+    1. Critical Missing Qualifications (must-haves not present)
+    2. Skill Gaps (technical and soft skills needed)
+    3. Experience Gaps (years, industries, specific roles)
+    4. Certification/Education Gaps
+    5. Actionable Steps (how to acquire missing qualifications)
+    6. Timeline Estimate (realistic timeframe for gap closure)
+    7. Alternative Approaches (if gaps are significant)
+    
+    Be honest and constructive about what's missing.
+
+keyword_extraction:
+  system: "You are an expert at extracting and analyzing keywords from job descriptions for ATS optimization."
+  user: |
+    Extract and categorize important keywords from this job description.
+    
+    JOB DESCRIPTION:
+    {job_description}
+    
+    Provide:
+    1. Technical Skills Keywords
+    2. Soft Skills Keywords
+    3. Required Qualifications
+    4. Industry-Specific Terms
+    5. Action Verbs and Phrases
+    6. Critical Must-Have vs Nice-to-Have keywords
+    
+    Prioritize keywords by importance for ATS matching.
